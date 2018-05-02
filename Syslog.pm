@@ -474,7 +474,7 @@ sub syslog {
         # %e format isn't available on all systems (Win32, cf. CPAN RT #69310)
         my $day = strftime "%e", localtime;
 
-        if (index($day, "%") == 0) {
+        if (index($day, "%") == 0 || $day eq '') {
             $day = strftime "%d", localtime;
             $day =~ s/^0/ /;
         }
